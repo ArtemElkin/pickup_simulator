@@ -30,7 +30,7 @@ public class JoystickController : MonoBehaviour, IPointerDownHandler, IDragHandl
     {
         isActive = false;
         _inputVector = Vector2.zero;
-        _joystick.rectTransform.anchoredPosition = new Vector2(0.5f, 0.5f);
+        _joystick.rectTransform.anchoredPosition = Vector2.zero;
     }
     public Vector3 ReturnVectorDirection()
     {
