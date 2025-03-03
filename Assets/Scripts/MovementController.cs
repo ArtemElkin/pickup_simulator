@@ -17,7 +17,8 @@ public class MovementController : MonoBehaviour
     {
         if (_joystickController.isActive)
         {
-            _rb.velocity = _joystickController.ReturnVectorDirection() * speed;
+            Vector3 moveDirection = transform.TransformDirection(_joystickController.ReturnVectorDirection());
+            _rb.velocity = moveDirection * speed;
         }
     }
 }

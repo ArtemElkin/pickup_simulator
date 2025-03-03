@@ -8,6 +8,8 @@ public class JoystickController : MonoBehaviour, IPointerDownHandler, IDragHandl
     [SerializeField] private Image _joystickBackground;
     [SerializeField] private Image _joystick;
     private Vector2 _inputVector;
+
+
     public void OnDrag(PointerEventData eventData)
     {
         Vector2 joystickPosition;
@@ -29,8 +31,8 @@ public class JoystickController : MonoBehaviour, IPointerDownHandler, IDragHandl
     public void OnPointerUp(PointerEventData eventData)
     {
         isActive = false;
-        _inputVector = Vector2.zero;
-        _joystick.rectTransform.anchoredPosition = Vector2.zero;
+        _inputVector = Vector2.zero; // Сбрасываем вектор движения
+        _joystick.rectTransform.anchoredPosition = Vector2.zero; // Возвращаем джойстик в начальные координаты
     }
     public Vector3 ReturnVectorDirection()
     {
