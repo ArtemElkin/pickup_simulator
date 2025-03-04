@@ -17,8 +17,10 @@ public class MovementController : MonoBehaviour
     {
         if (_joystickController.isActive)
         {
+            float previousVelocityY = _rb.velocity.y;
             Vector3 moveDirection = transform.TransformDirection(_joystickController.ReturnVectorDirection());
-            _rb.velocity = moveDirection * speed;
+            Vector3 newVelocityXZ = moveDirection * speed;
+            _rb.velocity = new Vector3(newVelocityXZ.x, previousVelocityY, newVelocityXZ.z);
         }
     }
 }

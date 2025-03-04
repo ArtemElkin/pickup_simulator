@@ -3,14 +3,19 @@ using UnityEngine.EventSystems;
 
 public class CameraController : MonoBehaviour
 {
-    public float sensivity;
-    public bool yInversion;
+    [Range(0.01f,0.5f)]
+    [SerializeField] private float _sensivity;
+    [SerializeField] private bool _yInversion;
     [SerializeField] private Transform _playerBody;
     private float _xRotation;
-    public int _cameraTouchId = -1;
-    public int _joystickTouchId = -1;
+    private int _cameraTouchId = -1;
+    private int _joystickTouchId = -1;
 
-
+    private void Awake()
+    {
+        if (_sensivity <= 0)
+            _sensivity = 1;
+    }
     private void Update()
     {
         foreach (Touch touch in Input.touches)
@@ -45,8 +50,8 @@ public class CameraController : MonoBehaviour
             // Если палец управляет камерой и двигается
             if (touch.fingerId == _cameraTouchId && touch.phase == TouchPhase.Moved)
             {
-                float _deltaX = touch.deltaPosition.x * sensivity;
-                float _deltaY = touch.deltaPosition.y * sensivity * (yInversion ? -1 : 1);
+                float _deltaX = touch.deltaPosition.x * _sensivity;
+                float _deltaY = touch.deltaPosition.y * _sensivity * (_yInversion ? -1 : 1);
 
                 // Поворачиваем персонажа
                 _playerBody.Rotate(Vector3.up * _deltaX);
