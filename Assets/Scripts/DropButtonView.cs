@@ -5,6 +5,7 @@ public class DropButtonView : MonoBehaviour
     [SerializeField] private GameObject _btn;
     [SerializeField] private PickupController _pickupController;
 
+
     private void OnEnable()
     {
         _pickupController.IsHoldingChanged += IsHoldingChanged;

@@ -11,11 +11,7 @@ public class CameraController : MonoBehaviour
     private int _cameraTouchId = -1;
     private int _joystickTouchId = -1;
 
-    private void Awake()
-    {
-        if (_sensivity <= 0)
-            _sensivity = 1;
-    }
+
     private void Update()
     {
         foreach (Touch touch in Input.touches)

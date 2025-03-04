@@ -25,6 +25,7 @@ public class PickupController : MonoBehaviour
         }
     }
     
+    
     private void Update()
     {
         if (!_isHolding && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)

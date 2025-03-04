@@ -4,7 +4,6 @@ public class MovementController : MonoBehaviour
 {
     public float speed = 1f;
     [SerializeField] private JoystickController _joystickController;
-    [SerializeField] private CameraController _cameraController;
     private Rigidbody _rb;
     
 

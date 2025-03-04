@@ -10,6 +10,7 @@ public class Gate : MonoBehaviour
     private bool _isOpened;
     private Coroutine _rotationCoroutine;
 
+
     private void Start()
     {
         Vector3 currentRotation = _gateBase.localEulerAngles;
@@ -18,7 +19,6 @@ public class Gate : MonoBehaviour
         _gateBase.localRotation = newRotation;
 
     }
-
     public void Switch()
     {
         _isOpened = !_isOpened;
@@ -27,7 +27,6 @@ public class Gate : MonoBehaviour
             StopCoroutine(_rotationCoroutine);
         _rotationCoroutine = StartCoroutine(RotateGate(targetAngle));
     }
-
     private IEnumerator RotateGate(float targetAngle)
     {
         Quaternion startRotation = _gateBase.localRotation;
